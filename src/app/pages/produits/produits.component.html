@@ -81,10 +81,11 @@
 
     <!-- Products Grid -->
     <div *ngIf="!loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-      <div 
+      <a 
         *ngFor="let product of displayedProducts; let i = index"
-        class="product-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
+        class="product-card group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
         [style.animation-delay]="i * 0.1 + 's'"
+        [routerLink]="['/products', product.id]"
       >
         <!-- Product Image -->
         <div class="relative h-48 bg-gradient-to-br from-primary/10 to-secondary/10 overflow-hidden">
@@ -112,16 +113,10 @@
           </div>
 
           <!-- Hover Overlay -->
-          <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center">
-            <button 
-              (click)="viewProduct(product)"
-              class="bg-white text-primary p-3 rounded-full transform translate-y-4 opacity-0 hover:translate-y-0 hover:opacity-100 transition-all duration-300"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-              </svg>
-            </button>
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center">
+            <span class="bg-white text-primary px-4 py-2 rounded-full transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 font-semibold shadow">
+              Voir le produit
+            </span>
           </div>
         </div>
 
@@ -163,13 +158,14 @@
 
           <!-- Add to Cart Button -->
           <button 
-            (click)="addToCart(product)"
+            type="button"
+            (click)="addToCart(product); $event.preventDefault(); $event.stopPropagation()"
             class="w-full bg-primary text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-primary/90 hover:shadow-lg transform hover:scale-105"
           >
             Ajouter au panier
           </button>
         </div>
-      </div>
+      </a>
     </div>
 
     <!-- Pagination -->
