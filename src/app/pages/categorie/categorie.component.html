@@ -1,0 +1,289 @@
+<!-- Hero Section Categories -->
+<section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-30">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="space-y-6">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text leading-tight">
+        Découvrez nos
+        <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Catégories
+        </span>
+      </h1>
+      <p class="text-xl text-text/70 max-w-3xl mx-auto leading-relaxed">
+        Explorez notre vaste collection de livres organisée par thèmes. Trouvez exactement ce que vous cherchez parmi nos nombreuses catégories littéraires.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <button (click)="scrollToCategories()" class="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          Explorer les catégories
+        </button>
+        <button (click)="scrollToFilters()" class="px-8 py-4 bg-white text-primary font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-primary/20">
+          Filtrer par genre
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Filter Section -->
+<section id="filters" class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="text-center py-16">
+      <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary mb-4"></div>
+      <p class="text-text/70">Chargement des catégories...</p>
+    </div>
+
+    <!-- Content -->
+    <div *ngIf="!isLoading" class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-text mb-4">
+        Filtrer par genre littéraire
+      </h2>
+      <p class="text-lg text-text/70">
+        Sélectionnez vos genres préférés pour une navigation personnalisée
+      </p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div *ngIf="!isLoading" class="flex flex-wrap justify-center gap-3 mb-12">
+      <button *ngFor="let genre of genres; let i = index" 
+              (click)="toggleGenre(genre)" 
+              [class.bg-primary]="isGenreSelected(genre)"
+              [class.text-white]="isGenreSelected(genre)"
+              [class.bg-gray-100]="!isGenreSelected(genre)"
+              [class.text-text]="!isGenreSelected(genre)"
+              class="px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              [class.scale-105]="isGenreSelected(genre)"
+              [class.shadow-lg]="isGenreSelected(genre)">
+        {{ genre }}
+        <span *ngIf="isGenreSelected(genre)" class="ml-2 inline-block w-2 h-2 bg-white rounded-full animate-pulse"></span>
+      </button>
+    </div>
+
+    <!-- Search Bar -->
+    <div *ngIf="!isLoading" class="max-w-2xl mx-auto">
+      <div class="relative">
+        <input type="text" 
+               [(ngModel)]="searchTerm" 
+               (input)="filterCategories()"
+               placeholder="Rechercher une catégorie..."
+               class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300 bg-white text-lg">
+        <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <div *ngIf="searchTerm" class="absolute right-4 top-1/2 transform -translate-y-1/2">
+          <button (click)="clearSearch()" class="text-gray-400 hover:text-gray-600 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categories Grid -->
+<section id="categories" class="py-20 bg-gradient-to-br from-gray-50 to-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Loading State for Categories -->
+    <div *ngIf="isLoading" class="text-center py-16">
+      <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary mb-4"></div>
+      <p class="text-text/70">Chargement des collections...</p>
+    </div>
+
+    <!-- Categories Content -->
+    <div *ngIf="!isLoading" class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-text mb-4">
+        Nos
+        <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Collections
+        </span>
+      </h2>
+      <p class="text-lg text-text/70 max-w-2xl mx-auto">
+        Plongez dans nos différentes catégories et découvrez des trésors littéraires qui vous feront voyager, rêver et réfléchir.
+      </p>
+    </div>
+
+    <!-- Results Info -->
+    <div *ngIf="!isLoading" class="flex justify-between items-center mb-8">
+      <p class="text-text/70">
+        <span class="font-semibold text-text">{{ filteredCategories.length }}</span> catégories trouvées
+      </p>
+      <select [(ngModel)]="sortBy" (change)="sortCategories()" class="px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300">
+        <option value="name">Trier par nom</option>
+        <option value="count">Trier par nombre de livres</option>
+        <option value="popular">Les plus populaires</option>
+      </select>
+    </div>
+
+    <!-- Categories Grid -->
+    <div *ngIf="!isLoading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div *ngFor="let category of filteredCategories; let i = index" 
+           class="card group cursor-pointer transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 slide-up"
+           [style.animation-delay]="i * 100 + 'ms'"
+           (click)="navigateToCategory(category)">
+        
+        <!-- Category Image -->
+        <div class="relative overflow-hidden rounded-t-2xl">
+          <div class="aspect-w-4 aspect-h-3 bg-gradient-to-br from-primary/20 to-secondary/20 relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-20 h-20 bg-white/90 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+                <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="category.icon"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+
+        <!-- Category Info -->
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-text mb-2 group-hover:text-primary transition-colors duration-300">
+            {{ category.name }}
+          </h3>
+          <p class="text-text/70 text-sm mb-4 line-clamp-2">
+            {{ category.description }}
+          </p>
+          
+          <!-- Stats -->
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-sm text-text/60">
+              <span class="font-semibold text-primary">{{ category.bookCount }}</span> livres
+            </span>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <span class="text-sm text-text/60">{{ category.rating }}</span>
+            </div>
+          </div>
+
+          <!-- Genre Tags -->
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span *ngFor="let genre of category.genres.slice(0, 3)" 
+                  class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
+              {{ genre }}
+            </span>
+            <span *ngIf="category.genres.length > 3" 
+                  class="px-3 py-1 bg-gray-100 text-text/60 text-xs rounded-full font-medium">
+              +{{ category.genres.length - 3 }}
+            </span>
+          </div>
+
+          <!-- CTA Button -->
+          <button class="w-full py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            Explorer
+            <svg class="w-4 h-4 inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Results -->
+    <div *ngIf="!isLoading && filteredCategories.length === 0" class="text-center py-16">
+      <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 6.306a7.962 7.962 0 00-6 0m6 0V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2.306"></path>
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-text mb-2">Aucune catégorie trouvée</h3>
+      <p class="text-text/70 mb-6">Essayez de modifier vos filtres ou votre recherche</p>
+      <button (click)="clearAllFilters()" class="px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors duration-300">
+        Effacer les filtres
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Categories -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-text mb-4">
+        Catégories
+        <span class="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+          Populaires
+        </span>
+      </h2>
+      <p class="text-lg text-text/70 max-w-2xl mx-auto">
+        Découvrez les catégories les plus consultées par nos lecteurs
+      </p>
+    </div>
+
+    <div *ngIf="isLoading" class="text-center py-16">
+      <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary mb-4"></div>
+      <p class="text-text/70">Chargement des catégories populaires...</p>
+    </div>
+
+    <div *ngIf="!isLoading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let featured of featuredCategories; let i = index" 
+           class="card group slide-up"
+           [style.animation-delay]="i * 150 + 'ms'">
+        <div class="relative overflow-hidden rounded-2xl">
+          <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-accent/20 to-primary/20 relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center">
+                <div class="w-16 h-16 bg-white/90 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="featured.icon"></path>
+                  </svg>
+                </div>
+                <span class="inline-block px-4 py-2 bg-white/90 text-accent font-bold rounded-full text-lg shadow-lg">
+                  #{{ i + 1 }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-text mb-3">{{ featured.name }}</h3>
+          <p class="text-text/70 mb-4">{{ featured.description }}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-primary font-semibold">{{ featured.bookCount }} livres</span>
+            <button (click)="navigateToCategory(featured)" class="px-4 py-2 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-colors duration-300">
+              Voir plus
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section *ngIf="!isLoading" class="py-20 bg-gradient-to-r from-primary to-secondary">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="space-y-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-white">
+        Vous ne trouvez pas ce que vous cherchez ?
+      </h2>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto">
+        Notre équipe est là pour vous aider à trouver le livre parfait. Contactez-nous ou explorez notre collection complète.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <button routerLink="/contact" class="px-8 py-4 bg-white text-primary font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          Nous contacter
+        </button>
+        <button routerLink="/products" class="px-8 py-4 bg-primary/20 text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-primary/30 transition-all duration-300">
+          Voir tous les livres
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

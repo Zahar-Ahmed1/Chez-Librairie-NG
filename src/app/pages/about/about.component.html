@@ -1,0 +1,427 @@
+<!-- Hero Section About -->
+<section class="hero-section relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-30">
+    <div class="background-element absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+    <div class="background-element absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+    <div class="background-element absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="space-y-6">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text leading-tight">
+        À propos de
+        <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Chez Librairie
+        </span>
+      </h1>
+      <p class="text-xl text-text/70 max-w-3xl mx-auto leading-relaxed">
+        Découvrez notre histoire, notre mission et notre passion pour la littérature qui nous anime depuis plus de 20 ans.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <button (click)="scrollToMission()" class="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          Notre Mission
+        </button>
+        <button (click)="scrollToTeam()" class="px-8 py-4 bg-white text-primary font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-primary/20">
+          Rencontrer l'équipe
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Mission Section -->
+<section id="mission" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-text">
+            Notre
+            <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Mission
+            </span>
+          </h2>
+          <p class="text-lg text-text/70 leading-relaxed">
+            Chez Librairie, nous croyons que chaque livre est une porte vers un nouveau monde. Notre mission est de connecter les lecteurs avec des histoires qui les inspirent, les éduquent et les transforment.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="mission-card bg-gradient-to-br from-primary/5 to-primary/10 p-6 rounded-2xl">
+            <div class="icon-wrapper w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text mb-2">Promotion de la Lecture</h3>
+            <p class="text-text/70 text-sm">Encourager la lecture et l'éducation dans notre communauté.</p>
+          </div>
+          
+          <div class="mission-card bg-gradient-to-br from-secondary/5 to-secondary/10 p-6 rounded-2xl">
+            <div class="icon-wrapper w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text mb-2">Communauté</h3>
+            <p class="text-text/70 text-sm">Créer un espace d'échange entre passionnés de littérature.</p>
+          </div>
+          
+          <div class="mission-card bg-gradient-to-br from-accent/5 to-accent/10 p-6 rounded-2xl">
+            <div class="icon-wrapper w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text mb-2">Innovation</h3>
+            <p class="text-text/70 text-sm">Offrir une expérience moderne et intuitive.</p>
+          </div>
+          
+          <div class="mission-card bg-gradient-to-br from-primary/5 to-secondary/10 p-6 rounded-2xl">
+            <div class="icon-wrapper w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text mb-2">Passion</h3>
+            <p class="text-text/70 text-sm">Partager notre amour des livres avec chaque client.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="relative">
+        <div class="aspect-w-4 aspect-h-3 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl overflow-hidden">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-32 h-32 bg-white/90 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl">
+                <svg class="w-16 h-16 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-text mb-2">20+ Ans d'Expérience</h3>
+              <p class="text-text/70">Au service de la littérature et des lecteurs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Story Section -->
+<section class="py-20 bg-gradient-to-br from-gray-50 to-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-text mb-4">
+        Notre
+        <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Histoire
+        </span>
+      </h2>
+      <p class="text-lg text-text/70 max-w-3xl mx-auto">
+        Découvrez comment une petite librairie familiale est devenue une référence incontournable dans le monde de la littérature.
+      </p>
+    </div>
+    
+    <div class="relative">
+      <!-- Timeline -->
+      <div class="timeline absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary to-secondary hidden md:block"></div>
+      
+      <div class="space-y-16">
+        <!-- 2003 -->
+        <div class="timeline-item relative flex flex-col md:flex-row items-center">
+          <div class="timeline-content w-full md:w-1/2 md:pr-8 md:text-right mb-4 md:mb-0">
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+              <h3 class="text-xl font-bold text-text mb-2">2003 - Fondation</h3>
+              <p class="text-text/70">Ouverture de la première librairie dans le quartier historique par Marie et Jean Dupont.</p>
+            </div>
+          </div>
+          <div class="timeline-dot w-8 h-8 bg-primary rounded-full border-4 border-white shadow-lg z-10 my-4 md:my-0"></div>
+          <div class="w-full md:w-1/2 md:pl-8 md:text-left mt-4 md:mt-0">
+            <div class="bg-primary/10 p-4 rounded-xl">
+              <p class="text-sm text-primary font-semibold">Début de l'aventure</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 2010 -->
+        <div class="timeline-item relative flex flex-col md:flex-row items-center">
+          <div class="timeline-content w-full md:w-1/2 md:pr-8 md:text-right mb-4 md:mb-0">
+            <div class="bg-secondary/10 p-4 rounded-xl">
+              <img src="assets/images/expansion-2010.jpg" alt="Expansion 2010" class="w-full h-32 object-cover rounded-lg mb-2">
+            </div>
+          </div>
+          <div class="timeline-dot w-8 h-8 bg-secondary rounded-full border-4 border-white shadow-lg z-10 my-4 md:my-0"></div>
+          <div class="timeline-content w-full md:w-1/2 md:pl-8 md:text-left mt-4 md:mt-0">
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+              <h3 class="text-xl font-bold text-text mb-2">2010 - Expansion</h3>
+              <p class="text-text/70">Lancement du site web et ouverture d'une deuxième succursale.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 2018 -->
+        <div class="timeline-item relative flex flex-col md:flex-row items-center">
+          <div class="timeline-content w-full md:w-1/2 md:pr-8 md:text-right mb-4 md:mb-0">
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+              <h3 class="text-xl font-bold text-text mb-2">2018 - Innovation</h3>
+              <p class="text-text/70">Introduction des ateliers littéraires et événements communautaires.</p>
+            </div>
+          </div>
+          <div class="timeline-dot w-8 h-8 bg-accent rounded-full border-4 border-white shadow-lg z-10 my-4 md:my-0"></div>
+          <div class="timeline-content w-full md:w-1/2 md:pl-8 md:text-left mt-4 md:mt-0">
+            <div class="bg-accent/10 p-4 rounded-xl">
+              <img src="assets/images/innovation-2018.jpg" alt="Innovation 2018" class="w-full h-32 object-cover rounded-lg mb-2">
+            </div>
+          </div>
+        </div>
+        
+        <!-- 2023 -->
+        <div class="timeline-item relative flex flex-col md:flex-row items-center">
+          <div class="timeline-content w-full md:w-1/2 md:pr-8 md:text-right mb-4 md:mb-0">
+            <div class="bg-primary/10 p-4 rounded-xl">
+              <img src="assets/images/futur-2023.jpg" alt="Futur 2023" class="w-full h-32 object-cover rounded-lg mb-2">
+            </div>
+          </div>
+          <div class="timeline-dot w-8 h-8 bg-primary rounded-full border-4 border-white shadow-lg z-10 my-4 md:my-0"></div>
+          <div class="timeline-content w-full md:w-1/2 md:pl-8 md:text-left mt-4 md:mt-0">
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+              <h3 class="text-xl font-bold text-text mb-2">2023 - Le Futur</h3>
+              <p class="text-text/70">Lancement de la plateforme en ligne moderne et intuitive.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-text mb-4">
+        Notre
+        <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Équipe
+        </span>
+      </h2>
+      <p class="text-lg text-text/70 max-w-3xl mx-auto">
+        Rencontrez les passionnés qui font vivre notre librairie chaque jour avec dévouement et expertise.
+      </p>
+    </div>
+    
+    <div class="team-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Team Member 1 -->
+      <div class="team-member group bg-gradient-to-br from-white to-gray-50 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+        <div class="relative mb-6">
+          <div class="team-avatar w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto flex items-center justify-center">
+            <span class="text-3xl font-bold text-white">MD</span>
+          </div>
+          <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-xl font-bold text-text mb-2 text-center">Marie Dupont</h3>
+        <p class="text-primary font-semibold mb-4 text-center">Fondatrice & Directrice</p>
+        <p class="text-text/70 text-sm text-center mb-4">Passionnée de littérature classique et moderne, Marie a fondé la librairie avec une vision claire : rendre la lecture accessible à tous.</p>
+        <div class="flex justify-center space-x-3">
+          <button class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+            </svg>
+          </button>
+          <button class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Team Member 2 -->
+      <div class="team-member group bg-gradient-to-br from-white to-gray-50 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+        <div class="relative mb-6">
+          <div class="team-avatar w-24 h-24 bg-gradient-to-br from-secondary to-accent rounded-full mx-auto flex items-center justify-center">
+            <span class="text-3xl font-bold text-white">JD</span>
+          </div>
+          <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-xl font-bold text-text mb-2 text-center">Jean Dupont</h3>
+        <p class="text-secondary font-semibold mb-4 text-center">Co-fondateur & Directeur Technique</p>
+        <p class="text-text/70 text-sm text-center mb-4">Spécialiste en technologie de l'information, Jean a transformé la librairie traditionnelle en une plateforme numérique innovante.</p>
+        <div class="flex justify-center space-x-3">
+          <button class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center hover:bg-secondary/20 transition-colors">
+            <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+            </svg>
+          </button>
+          <button class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center hover:bg-secondary/20 transition-colors">
+            <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Team Member 3 -->
+      <div class="team-member group bg-gradient-to-br from-white to-gray-50 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+        <div class="relative mb-6">
+          <div class="team-avatar w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-full mx-auto flex items-center justify-center">
+            <span class="text-3xl font-bold text-white">SC</span>
+          </div>
+          <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-xl font-bold text-text mb-2 text-center">Sophie Chen</h3>
+        <p class="text-accent font-semibold mb-4 text-center">Responsable Collection & Événements</p>
+            <p class="text-text/70 text-sm text-center mb-4">Experte en littérature contemporaine, Sophie organise nos événements et sélectionne les nouveautés avec un œil avisé.</p>
+        <div class="flex justify-center space-x-3">
+          <button class="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors">
+            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+            </svg>
+          </button>
+          <button class="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors">
+            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values Section -->
+<section class="py-20 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-text mb-4">
+        Nos
+        <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Valeurs
+        </span>
+      </h2>
+      <p class="text-lg text-text/70 max-w-3xl mx-auto">
+        Les principes qui guident chacune de nos actions au quotidien.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="text-center group value-card">
+        <div class="value-icon w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-300 transform group-hover:scale-110">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-text mb-3">Authenticité</h3>
+        <p class="text-text/70">Des livres authentiques, des conseils honnêtes, une relation véritable avec nos clients.</p>
+      </div>
+      
+      <div class="text-center group value-card">
+        <div class="value-icon w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-300 transform group-hover:scale-110">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-text mb-3">Passion</h3>
+        <p class="text-text/70">Une passion débordante pour la littérature qui se transmet dans chaque interaction.</p>
+      </div>
+      
+      <div class="text-center group value-card">
+        <div class="value-icon w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-300 transform group-hover:scale-110">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-text mb-3">Communauté</h3>
+        <p class="text-text/70">Créer des liens entre lecteurs, auteurs et amateurs de littérature.</p>
+      </div>
+      
+      <div class="text-center group value-card">
+        <div class="value-icon w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-300 transform group-hover:scale-110">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-text mb-3">Innovation</h3>
+        <p class="text-text/70">Toujours innover pour offrir la meilleure expérience de lecture possible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="text-center group stat-card">
+        <div class="stat-number text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+          50K+
+        </div>
+        <p class="text-text/70 font-semibold">Livres disponibles</p>
+      </div>
+      
+      <div class="text-center group stat-card">
+        <div class="stat-number text-4xl md:text-5xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+          100K+
+        </div>
+        <p class="text-text/70 font-semibold">Lecteurs satisfaits</p>
+      </div>
+      
+      <div class="text-center group stat-card">
+        <div class="stat-number text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+          20+
+        </div>
+        <p class="text-text/70 font-semibold">Années d'expérience</p>
+      </div>
+      
+      <div class="text-center group stat-card">
+        <div class="stat-number text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+          4.9
+        </div>
+        <p class="text-text/70 font-semibold">Note moyenne</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section py-20 bg-gradient-to-r from-primary to-secondary">
+  <div class="cta-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="space-y-6">
+      <h2 class="cta-title text-3xl md:text-4xl font-bold text-white">
+        Prêt à rejoindre notre aventure littéraire ?
+      </h2>
+      <p class="cta-subtitle text-xl text-white/90 max-w-2xl mx-auto">
+        Que vous soyez un lecteur occasionnel ou un passionné, nous avons quelque chose pour vous. Rejoignez notre communauté dès aujourd'hui.
+      </p>
+      <div class="cta-buttons flex flex-wrap justify-center gap-4">
+        <button routerLink="/products" class="cta-primary px-8 py-4 bg-white text-primary font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          Explorer nos livres
+        </button>
+        <button routerLink="/contact" class="cta-secondary px-8 py-4 bg-primary/20 text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-primary/30 transition-all duration-300">
+          Nous contacter
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

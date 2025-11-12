@@ -1,0 +1,101 @@
+/* Animation du formulaire */
+.newsletter-form {
+  animation: slideUp 0.8s ease-out;
+}
+
+.newsletter-form input:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+}
+
+.newsletter-form button {
+  animation: pulse 2s infinite;
+}
+
+.newsletter-form button:hover {
+  animation: none;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+}
+
+/* Animation des cartes d'avantages */
+#newsletter .bg-gradient-to-br {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#newsletter .bg-gradient-to-br:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+#newsletter .bg-gradient-to-br:hover div:first-child {
+  animation: bounce 0.6s ease;
+}
+
+/* Animation des icônes */
+#newsletter .bg-gradient-to-br div:first-child {
+  transition: all 0.3s ease;
+}
+
+#newsletter .bg-gradient-to-br:hover div:first-child {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Effet de focus sur le formulaire */
+.newsletter-form:focus-within {
+  transform: scale(1.01);
+  transition: transform 0.3s ease;
+}
+
+/* Animation de validation (à ajouter via JavaScript si nécessaire) */
+.newsletter-form.success {
+  animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #newsletter .bg-white {
+    padding: 2rem;
+  }
+  
+  .newsletter-form input {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  
+  .newsletter-form button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Animation d'apparition */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+}

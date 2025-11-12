@@ -1,0 +1,12 @@
+node_modules
+dist
+.angular
+.git
+.gitignore
+README.md
+Dockerfile
+*.log
+coverage
+tmp
+*.tsbuildinfo
+

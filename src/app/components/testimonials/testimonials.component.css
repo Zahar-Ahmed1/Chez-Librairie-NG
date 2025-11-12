@@ -1,0 +1,69 @@
+/* Animations pour les témoignages */
+.testimonial-card {
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Effet de citation */
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 60px;
+  color: var(--accent);
+  opacity: 0.1;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+/* Animation au survol des cartes */
+.testimonial-card .card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card:hover .card {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+/* Animation des étoiles */
+.testimonial-card:hover .text-accent svg {
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Animation de l'avatar */
+.testimonial-card .rounded-full {
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .rounded-full {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonial-card::before {
+    font-size: 40px;
+    top: 15px;
+    right: 20px;
+  }
+  
+  .testimonial-card .card {
+    padding: 1.5rem;
+  }
+}
