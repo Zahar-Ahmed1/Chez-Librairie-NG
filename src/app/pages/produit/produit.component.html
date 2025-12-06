@@ -104,8 +104,8 @@
             <p class="text-lg text-gray-600">{{ product.description }}</p>
 
             <div class="flex flex-wrap items-center gap-4 mt-6">
-              <span class="text-4xl font-black text-primary">{{ product.price }}€</span>
-              <span *ngIf="product.originalPrice" class="text-2xl text-gray-400 line-through">{{ product.originalPrice }}€</span>
+              <span class="text-4xl font-black text-primary">{{ product.price }} MAD</span>
+              <span *ngIf="product.originalPrice" class="text-2xl text-gray-400 line-through">{{ product.originalPrice }} MAD</span>
               <span *ngIf="discountPercentage" class="px-3 py-1 bg-accent text-white rounded-full text-sm font-bold">
                 Économisez {{ discountPercentage }}%
               </span>
@@ -223,7 +223,7 @@
               <h3 class="text-lg font-bold text-gray-900">{{ related.name }}</h3>
               <p class="text-sm text-gray-600 line-clamp-2">{{ related.description }}</p>
               <div class="flex items-center justify-between">
-                <span class="text-xl font-bold text-primary">{{ related.price }}€</span>
+                <span class="text-xl font-bold text-primary">{{ related.price }} MAD</span>
                 <a [routerLink]="['/products', related.id]" class="bg-primary text-white px-4 py-2 rounded-full text-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300">
                   Voir
                 </a>
